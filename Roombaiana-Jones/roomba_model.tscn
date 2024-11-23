@@ -1,0 +1,103 @@
+[gd_scene load_steps=3 format=3 uid="uid://wp1sy5y4btxn"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_w4a3n"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 0.3
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_064p2"]
+radius = 0.05
+height = 0.4
+radial_segments = 16
+rings = 1
+
+[node name="RoombaModel" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="CSGCombiner3D"]
+mesh = SubResource("CylinderMesh_w4a3n")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="CSGCombiner3D/CSGMesh3D"]
+transform = Transform3D(1, 0, 0, 0, 0.46793, 0.883766, 0, -0.883766, 0.46793, 0.0631315, -0.190782, 1.06725)
+mesh = SubResource("CapsuleMesh_064p2")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="CSGCombiner3D/CSGMesh3D"]
+transform = Transform3D(0.857167, 0.392803, -0.333121, 0, -0.64679, -0.762668, -0.515038, 0.653734, -0.554407, 0.345627, -0.190782, 0.97412)
+mesh = SubResource("CapsuleMesh_064p2")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="CSGCombiner3D/CSGMesh3D"]
+transform = Transform3D(0.64812, 0.6306, -0.426948, 4.90126e-08, -0.560639, -0.82806, -0.761538, 0.536682, -0.363361, 0.587683, -0.222926, 0.763129)
+mesh = SubResource("CapsuleMesh_064p2")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="CSGCombiner3D/CSGMesh3D"]
+transform = Transform3D(0.430869, 0.714338, -0.551429, -0.178821, -0.531356, -0.82806, -0.88452, 0.455392, -0.101206, 0.810441, -0.247904, 0.56705)
+mesh = SubResource("CapsuleMesh_064p2")
+
+[node name="CSGMesh3D5" type="CSGMesh3D" parent="CSGCombiner3D/CSGMesh3D"]
+transform = Transform3D(-0.326381, -0.932316, -0.155763, -0.641061, 0.339424, -0.688355, 0.694634, -0.124812, -0.708453, 0.9969, -0.206494, 0.289073)
+mesh = SubResource("CapsuleMesh_064p2")
+
+[node name="CSGMesh3D6" type="CSGMesh3D" parent="CSGCombiner3D/CSGMesh3D"]
+transform = Transform3D(-0.00491574, -0.898688, -0.438561, -0.641061, 0.339424, -0.688355, 0.767474, 0.27776, -0.577782, 0.995426, -0.203688, 0.0151073)
+mesh = SubResource("CapsuleMesh_064p2")
+
+[node name="CSGMesh3D7" type="CSGMesh3D" parent="CSGCombiner3D/CSGMesh3D"]
+transform = Transform3D(-0.00491574, -0.898688, -0.438561, -0.641061, 0.339424, -0.688355, 0.767474, 0.27776, -0.577782, 0.995426, -0.203688, -0.250119)
+mesh = SubResource("CapsuleMesh_064p2")
+
+[node name="CSGMesh3D8" type="CSGMesh3D" parent="CSGCombiner3D/CSGMesh3D"]
+transform = Transform3D(-0.00491574, -0.898688, -0.438561, -0.641061, 0.339424, -0.688355, 0.767474, 0.27776, -0.577782, 0.893865, -0.22115, -0.54155)
+mesh = SubResource("CapsuleMesh_064p2")
+
+[node name="CSGMesh3D9" type="CSGMesh3D" parent="CSGCombiner3D/CSGMesh3D"]
+transform = Transform3D(0.292877, -0.720831, -0.628193, -0.641061, 0.339424, -0.688354, 0.709411, 0.604313, -0.362687, 0.652296, -0.208023, -0.789704)
+mesh = SubResource("CapsuleMesh_064p2")
+
+[node name="CSGMesh3D10" type="CSGMesh3D" parent="CSGCombiner3D/CSGMesh3D"]
+transform = Transform3D(0.608344, -0.322102, -0.725374, -0.641061, 0.339424, -0.688354, 0.46793, 0.883766, -3.17071e-08, 0.3934, -0.208023, -0.789704)
+mesh = SubResource("CapsuleMesh_064p2")
+
+[node name="CSGMesh3D11" type="CSGMesh3D" parent="CSGCombiner3D/CSGMesh3D"]
+transform = Transform3D(0.608344, -0.322102, -0.725374, -0.641061, 0.339424, -0.688354, 0.46793, 0.883766, -3.17071e-08, 0.187599, -0.195839, -0.997048)
+mesh = SubResource("CapsuleMesh_064p2")
+
+[node name="CSGMesh3D12" type="CSGMesh3D" parent="CSGCombiner3D/CSGMesh3D"]
+transform = Transform3D(0.760806, 0.162935, -0.628193, -0.641061, 0.339424, -0.688354, 0.101067, 0.926414, 0.362687, -0.120344, -0.198734, -1.00479)
+mesh = SubResource("CapsuleMesh_064p2")
+
+[node name="CSGMesh3D13" type="CSGMesh3D" parent="CSGCombiner3D/CSGMesh3D"]
+transform = Transform3D(0.760806, 0.162935, -0.628193, -0.641061, 0.339424, -0.688354, 0.101067, 0.926414, 0.362687, -0.447851, -0.213109, -0.990306)
+mesh = SubResource("CapsuleMesh_064p2")
+
+[node name="CSGMesh3D14" type="CSGMesh3D" parent="CSGCombiner3D/CSGMesh3D"]
+transform = Transform3D(0.709411, 0.604313, -0.362687, -0.641061, 0.339424, -0.688354, -0.292877, 0.720831, 0.628193, -0.722316, -0.205812, -0.76048)
+mesh = SubResource("CapsuleMesh_064p2")
+
+[node name="CSGMesh3D15" type="CSGMesh3D" parent="CSGCombiner3D/CSGMesh3D"]
+transform = Transform3D(0.46793, 0.883766, 0, -0.641061, 0.339424, -0.688354, -0.608344, 0.322102, 0.725374, -0.870172, -0.205812, -0.458212)
+mesh = SubResource("CapsuleMesh_064p2")
+
+[node name="CSGMesh3D16" type="CSGMesh3D" parent="CSGCombiner3D/CSGMesh3D"]
+transform = Transform3D(0.101067, 0.926414, 0.362687, -0.641061, 0.339424, -0.688354, -0.760806, -0.162935, 0.628193, -0.985538, -0.205812, -0.142912)
+mesh = SubResource("CapsuleMesh_064p2")
+
+[node name="CSGMesh3D17" type="CSGMesh3D" parent="CSGCombiner3D/CSGMesh3D"]
+transform = Transform3D(0.101067, 0.926414, 0.362687, -0.641061, 0.339424, -0.688354, -0.760806, -0.162935, 0.628193, -0.985538, -0.190389, 0.167068)
+mesh = SubResource("CapsuleMesh_064p2")
+
+[node name="CSGMesh3D18" type="CSGMesh3D" parent="CSGCombiner3D/CSGMesh3D"]
+transform = Transform3D(-0.0992879, 0.852677, 0.512917, -0.641061, 0.339424, -0.688354, -0.761041, -0.397156, 0.512917, -0.908628, -0.190389, 0.416316)
+mesh = SubResource("CapsuleMesh_064p2")
+
+[node name="CSGMesh3D19" type="CSGMesh3D" parent="CSGCombiner3D/CSGMesh3D"]
+transform = Transform3D(-0.0992879, 0.852677, 0.512917, -0.641061, 0.339424, -0.688354, -0.761041, -0.397156, 0.512917, -0.737798, -0.170492, 0.643861)
+mesh = SubResource("CapsuleMesh_064p2")
+
+[node name="CSGMesh3D20" type="CSGMesh3D" parent="CSGCombiner3D/CSGMesh3D"]
+transform = Transform3D(-0.466506, 0.539862, 0.700658, -0.641061, 0.339424, -0.688354, -0.609437, -0.770286, 0.187741, -0.588865, -0.158324, 0.834447)
+mesh = SubResource("CapsuleMesh_064p2")
+
+[node name="CSGMesh3D21" type="CSGMesh3D" parent="CSGCombiner3D/CSGMesh3D"]
+transform = Transform3D(-0.608344, 0.322102, 0.725374, -0.641061, 0.339424, -0.688354, -0.46793, -0.883766, -3.17071e-08, -0.383188, -0.175987, 0.965703)
+mesh = SubResource("CapsuleMesh_064p2")

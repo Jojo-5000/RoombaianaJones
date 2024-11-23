@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdp12jecxw0yu"]
+
+[ext_resource type="Script" path="res://double_jump_unlock_zone.gd" id="1_bfw3i"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_w850r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8wkqh"]
+transparency = 1
+blend_mode = 3
+albedo_color = Color(0.498039, 1, 1, 1)
+emission_enabled = true
+emission = Color(0.45098, 0.509804, 0, 1)
+emission_energy_multiplier = 6.45
+
+[sub_resource type="SphereMesh" id="SphereMesh_v4asa"]
+material = SubResource("StandardMaterial3D_8wkqh")
+
+[node name="DoubleJumpUnlocker" type="Node3D"]
+
+[node name="DoubleJumpUnlockZone" type="Area3D" parent="."]
+script = ExtResource("1_bfw3i")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoubleJumpUnlockZone"]
+shape = SubResource("SphereShape3D_w850r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DoubleJumpUnlockZone"]
+mesh = SubResource("SphereMesh_v4asa")

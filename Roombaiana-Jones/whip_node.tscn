@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://pp0aypft75ox"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0jr2g"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_puchy"]
+material = SubResource("StandardMaterial3D_0jr2g")
+size = Vector3(5, 0.05, 0.05)
+
+[node name="WhipNode" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_puchy")

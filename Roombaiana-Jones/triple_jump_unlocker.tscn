@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dranwp6vsb0wv"]
+
+[ext_resource type="Script" path="res://triple_jump_unlock_zone.gd" id="1_m8ivh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2j6jo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2p5i"]
+transparency = 1
+blend_mode = 3
+albedo_color = Color(0.498039, 1, 1, 1)
+emission_enabled = true
+emission = Color(0.812538, 5.66018e-05, 0.627358, 1)
+emission_energy_multiplier = 6.45
+
+[sub_resource type="SphereMesh" id="SphereMesh_07tab"]
+material = SubResource("StandardMaterial3D_x2p5i")
+
+[node name="TripleJumpUnlocker" type="Node3D"]
+
+[node name="TripleJumpUnlockZone" type="Area3D" parent="."]
+script = ExtResource("1_m8ivh")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TripleJumpUnlockZone"]
+shape = SubResource("SphereShape3D_2j6jo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TripleJumpUnlockZone"]
+mesh = SubResource("SphereMesh_07tab")
+
+[connection signal="body_entered" from="TripleJumpUnlockZone" to="TripleJumpUnlockZone" method="_on_body_entered"]

@@ -1,0 +1,158 @@
+[gd_scene load_steps=27 format=3 uid="uid://b822nmn0vp7ee"]
+
+[ext_resource type="Script" path="res://roombaiana_jones.gd" id="1_1h2hy"]
+[ext_resource type="PackedScene" uid="uid://wp1sy5y4btxn" path="res://roomba_model.tscn" id="2_p8tiv"]
+[ext_resource type="Texture2D" uid="uid://cngq4681d2gsu" path="res://Textures/HairFur.png" id="3_44ihk"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_r18i8"]
+height = 0.5
+radius = 1.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vs4p5"]
+albedo_color = Color(0.329158, 0.329158, 0.329158, 1)
+metallic = 0.35
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8fgtx"]
+albedo_texture = ExtResource("3_44ihk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qghf4"]
+albedo_texture = ExtResource("3_44ihk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g1khu"]
+albedo_texture = ExtResource("3_44ihk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rk8cs"]
+albedo_texture = ExtResource("3_44ihk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2sx6"]
+albedo_texture = ExtResource("3_44ihk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_545dr"]
+albedo_texture = ExtResource("3_44ihk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pr6ey"]
+albedo_texture = ExtResource("3_44ihk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y7hj2"]
+albedo_texture = ExtResource("3_44ihk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fc8c4"]
+albedo_texture = ExtResource("3_44ihk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0338"]
+albedo_texture = ExtResource("3_44ihk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8osuw"]
+albedo_texture = ExtResource("3_44ihk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7redf"]
+albedo_texture = ExtResource("3_44ihk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_864hi"]
+albedo_texture = ExtResource("3_44ihk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3okwv"]
+albedo_texture = ExtResource("3_44ihk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jr5dn"]
+albedo_texture = ExtResource("3_44ihk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rri6h"]
+albedo_texture = ExtResource("3_44ihk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kv0lp"]
+albedo_texture = ExtResource("3_44ihk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a5rse"]
+albedo_texture = ExtResource("3_44ihk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjirj"]
+albedo_texture = ExtResource("3_44ihk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x06lf"]
+albedo_texture = ExtResource("3_44ihk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1nt4"]
+albedo_texture = ExtResource("3_44ihk")
+
+[node name="Character" type="Node3D"]
+
+[node name="RoombaianaJones" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36093, 0)
+script = ExtResource("1_1h2hy")
+JUMP_VELOCITY = 5.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoombaianaJones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0539076, 0)
+shape = SubResource("CylinderShape3D_r18i8")
+
+[node name="RoombaModel" parent="RoombaianaJones" instance=ExtResource("2_p8tiv")]
+
+[node name="CSGMesh3D" parent="RoombaianaJones/RoombaModel/CSGCombiner3D" index="0"]
+material = SubResource("StandardMaterial3D_vs4p5")
+
+[node name="CSGMesh3D" parent="RoombaianaJones/RoombaModel/CSGCombiner3D/CSGMesh3D" index="0"]
+material = SubResource("StandardMaterial3D_8fgtx")
+
+[node name="CSGMesh3D2" parent="RoombaianaJones/RoombaModel/CSGCombiner3D/CSGMesh3D" index="1"]
+material = SubResource("StandardMaterial3D_qghf4")
+
+[node name="CSGMesh3D3" parent="RoombaianaJones/RoombaModel/CSGCombiner3D/CSGMesh3D" index="2"]
+material = SubResource("StandardMaterial3D_g1khu")
+
+[node name="CSGMesh3D4" parent="RoombaianaJones/RoombaModel/CSGCombiner3D/CSGMesh3D" index="3"]
+material = SubResource("StandardMaterial3D_rk8cs")
+
+[node name="CSGMesh3D5" parent="RoombaianaJones/RoombaModel/CSGCombiner3D/CSGMesh3D" index="4"]
+material = SubResource("StandardMaterial3D_n2sx6")
+
+[node name="CSGMesh3D6" parent="RoombaianaJones/RoombaModel/CSGCombiner3D/CSGMesh3D" index="5"]
+material = SubResource("StandardMaterial3D_545dr")
+
+[node name="CSGMesh3D7" parent="RoombaianaJones/RoombaModel/CSGCombiner3D/CSGMesh3D" index="6"]
+material = SubResource("StandardMaterial3D_pr6ey")
+
+[node name="CSGMesh3D8" parent="RoombaianaJones/RoombaModel/CSGCombiner3D/CSGMesh3D" index="7"]
+material = SubResource("StandardMaterial3D_y7hj2")
+
+[node name="CSGMesh3D9" parent="RoombaianaJones/RoombaModel/CSGCombiner3D/CSGMesh3D" index="8"]
+material = SubResource("StandardMaterial3D_fc8c4")
+
+[node name="CSGMesh3D10" parent="RoombaianaJones/RoombaModel/CSGCombiner3D/CSGMesh3D" index="9"]
+material = SubResource("StandardMaterial3D_p0338")
+
+[node name="CSGMesh3D11" parent="RoombaianaJones/RoombaModel/CSGCombiner3D/CSGMesh3D" index="10"]
+material = SubResource("StandardMaterial3D_8osuw")
+
+[node name="CSGMesh3D12" parent="RoombaianaJones/RoombaModel/CSGCombiner3D/CSGMesh3D" index="11"]
+material = SubResource("StandardMaterial3D_7redf")
+
+[node name="CSGMesh3D13" parent="RoombaianaJones/RoombaModel/CSGCombiner3D/CSGMesh3D" index="12"]
+material = SubResource("StandardMaterial3D_864hi")
+
+[node name="CSGMesh3D14" parent="RoombaianaJones/RoombaModel/CSGCombiner3D/CSGMesh3D" index="13"]
+material = SubResource("StandardMaterial3D_3okwv")
+
+[node name="CSGMesh3D15" parent="RoombaianaJones/RoombaModel/CSGCombiner3D/CSGMesh3D" index="14"]
+material = SubResource("StandardMaterial3D_jr5dn")
+
+[node name="CSGMesh3D16" parent="RoombaianaJones/RoombaModel/CSGCombiner3D/CSGMesh3D" index="15"]
+material = SubResource("StandardMaterial3D_rri6h")
+
+[node name="CSGMesh3D17" parent="RoombaianaJones/RoombaModel/CSGCombiner3D/CSGMesh3D" index="16"]
+material = SubResource("StandardMaterial3D_kv0lp")
+
+[node name="CSGMesh3D18" parent="RoombaianaJones/RoombaModel/CSGCombiner3D/CSGMesh3D" index="17"]
+material = SubResource("StandardMaterial3D_a5rse")
+
+[node name="CSGMesh3D19" parent="RoombaianaJones/RoombaModel/CSGCombiner3D/CSGMesh3D" index="18"]
+material = SubResource("StandardMaterial3D_jjirj")
+
+[node name="CSGMesh3D20" parent="RoombaianaJones/RoombaModel/CSGCombiner3D/CSGMesh3D" index="19"]
+material = SubResource("StandardMaterial3D_x06lf")
+
+[node name="CSGMesh3D21" parent="RoombaianaJones/RoombaModel/CSGCombiner3D/CSGMesh3D" index="20"]
+material = SubResource("StandardMaterial3D_v1nt4")
+
+[editable path="RoombaianaJones/RoombaModel"]
