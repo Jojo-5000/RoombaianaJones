@@ -83,5 +83,5 @@ func _physics_process(delta: float) -> void:
 	if is_grounded:
 		# Only reset jump count after the player has landed and is on the ground
 		if jump_count > 1:
-			jump_count = 1  # Reset jump count after touching the ground to allow the first jump
+			jump_count = 1  # Reset jump count after touching the ground to allow new jump
 			print("Landed, reset jump count!")
