@@ -5,6 +5,9 @@ extends CharacterBody3D
 @export var gravity : float = -10
 @export var max_jumps : int = 1  # Start with 1 jump (adjustable to 2 once unlocked)
 @export var camera : Camera3D  # Reference to the Camera3D node
+@export var shoot_offset: float = 1.5  # Offset to spawn bullet slightly ahead of the camera
+
+@export var bullet_scene: PackedScene
 
 var jump_count : int = 1  # Tracks the current jump count (starts at 1, indicating first jump available)
 var is_grounded : bool = false
@@ -85,3 +88,22 @@ func _physics_process(delta: float) -> void:
 		if jump_count > 1:
 			jump_count = 1  # Reset jump count after touching the ground to allow new jump
 			print("Landed, reset jump count!")
+			
+	if Input.is_action_pressed("Left_click"):
+		camera.aiming = true
+	else:
+		camera.aiming = false
+			
+	if Input.is_action_just_pressed("shoot"):
+		# Get the global position of the spawn point (near the character)
+		var b = bullet_scene.instantiate()
+		owner.add_child(b)
+
+		b.transform = camera.global_transform
+		#print(b.transform.basis.z)
+		#b.transform = b.transform.basis.z + 1000
+		b.transform.origin = $Shootorigin.global_transform.origin
+		b.velocity = -b.transform.basis.z * b.muzzle_velocity
+			
+	if Input.is_action_just_pressed("q"):
+		get_tree().quit()
