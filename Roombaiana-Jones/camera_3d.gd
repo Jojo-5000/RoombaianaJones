@@ -1,10 +1,12 @@
 extends Camera3D
 
 @export var player : Node3D  # The player node to follow
-@export var rotation_speed : float = 0.005  # Mouse sensitivity for rotation
+@export var rotation_speed : float = 0.1  # Mouse sensitivity for rotation
 @export var distance : float = 5.0  # Distance from the player
+@export var close_distance : float = 1.0
 @export var height : float = 2.0  # Height offset for the camera
-@export var smooth_factor : float = 0.1  # Smoothness for camera movement
+@export var smooth_factor : float = 0.05  # Smoothness for camera movement
+@export var aiming : bool = false
 
 var yaw : float = 0.0  # Rotation around the Y-axis (horizontal)
 var pitch : float = 0.0  # Rotation around the X-axis (vertical)
@@ -19,13 +21,9 @@ func _process(delta: float) -> void:
 		# Get the mouse movement (relative motion, not absolute position)
 		var mouse_velocity = Input.get_last_mouse_velocity()
 		
-		
-		
 		# Adjust yaw and pitch based on mouse movement
 		yaw -= mouse_velocity.x * rotation_speed
 		pitch -= mouse_velocity.y * rotation_speed
-
-		
 
 		# Clamp the pitch to prevent the camera from flipping upside down
 		pitch = clamp(pitch, -80.0, 80.0)
@@ -37,14 +35,17 @@ func _process(delta: float) -> void:
 			cos(deg_to_rad(pitch)) * cos(deg_to_rad(yaw))
 		)
 
-		# Set the camera's position relative to the player
 		var target_position = player.global_transform.origin + Vector3(0, height, 0) - direction * distance
-
+		
+		if (aiming):
+			target_position = player.global_transform.origin + Vector3(0, height, 0) - direction * close_distance
+			
 		# Smoothly interpolate the camera's position towards the target position using lerp()
 		current_position = current_position.lerp(target_position, smooth_factor)
-
+		
+		look_at(player.global_transform.origin + Vector3(0, height, 0), Vector3.UP)
 		# Update the camera's position
 		global_transform.origin = current_position
 
 		# Always make the camera look at the player
-		look_at(player.global_transform.origin, Vector3.UP)
+		
