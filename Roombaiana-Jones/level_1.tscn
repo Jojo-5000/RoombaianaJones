@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bfy2kakhsby8u"]
+[gd_scene load_steps=20 format=3 uid="uid://bfy2kakhsby8u"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_t5ys4"]
 [ext_resource type="PackedScene" uid="uid://b822nmn0vp7ee" path="res://character.tscn" id="1_vi0qk"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://pp0aypft75ox" path="res://whip_node.tscn" id="7_uqym6"]
 [ext_resource type="PackedScene" uid="uid://kwnvgeimyjtd" path="res://movable_blocks.tscn" id="8_brb3k"]
 [ext_resource type="PackedScene" uid="uid://bg6qhljfbo7js" path="res://pause_menu.tscn" id="10_w1ts0"]
+[ext_resource type="PackedScene" uid="uid://duiq8m00p6fdi" path="res://game_controller.tscn" id="11_a0iho"]
+[ext_resource type="PackedScene" uid="uid://0o0bcv0sshsh" path="res://dust_area.tscn" id="12_n35o6"]
+[ext_resource type="PackedScene" uid="uid://cwu6wq31co236" path="res://hud.tscn" id="13_8y4c5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5r6cw"]
 
@@ -113,6 +116,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.320838, 0)
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("10_w1ts0")]
 visible = false
+
+[node name="GameController" parent="." instance=ExtResource("11_a0iho")]
+
+[node name="DustArea" parent="." instance=ExtResource("12_n35o6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.588571, 2.62558)
+
+[node name="HUD" parent="." instance=ExtResource("13_8y4c5")]
 
 [connection signal="body_entered" from="DoubleJumpUnlocker/DoubleJumpUnlockZone" to="DoubleJumpUnlocker/DoubleJumpUnlockZone" method="_on_body_entered"]
 

@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwu6wq31co236"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_lgvpa"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_lgvpa")
+
+[node name="DustProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2
+
+[node name="StatusLabel" type="Label" parent="."]
+offset_left = 1.0
+offset_top = 29.0
+offset_right = 41.0
+offset_bottom = 52.0
