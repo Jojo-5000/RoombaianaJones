@@ -5,14 +5,27 @@
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_lgvpa")
 
-[node name="DustProgressBar" type="ProgressBar" parent="."]
+[node name="DustProgressBarType1" type="ProgressBar" parent="."]
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 27.0
 grow_horizontal = 2
 
 [node name="StatusLabel" type="Label" parent="."]
-offset_left = 1.0
-offset_top = 29.0
-offset_right = 41.0
-offset_bottom = 52.0
+offset_top = 90.0
+offset_right = 40.0
+offset_bottom = 113.0
+
+[node name="DustProgressBarType2" type="ProgressBar" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 30.0
+offset_bottom = 57.0
+grow_horizontal = 2
+
+[node name="DustProgressBarType3" type="ProgressBar" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 60.0
+offset_bottom = 87.0
+grow_horizontal = 2

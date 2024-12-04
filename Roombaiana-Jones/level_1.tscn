@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bfy2kakhsby8u"]
+[gd_scene load_steps=22 format=3 uid="uid://bfy2kakhsby8u"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_t5ys4"]
 [ext_resource type="PackedScene" uid="uid://b822nmn0vp7ee" path="res://character.tscn" id="1_vi0qk"]
@@ -11,8 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://kwnvgeimyjtd" path="res://movable_blocks.tscn" id="8_brb3k"]
 [ext_resource type="PackedScene" uid="uid://bg6qhljfbo7js" path="res://pause_menu.tscn" id="10_w1ts0"]
 [ext_resource type="PackedScene" uid="uid://duiq8m00p6fdi" path="res://game_controller.tscn" id="11_a0iho"]
-[ext_resource type="PackedScene" uid="uid://0o0bcv0sshsh" path="res://dust_area.tscn" id="12_n35o6"]
+[ext_resource type="PackedScene" uid="uid://0o0bcv0sshsh" path="res://dust_area_type_1.tscn" id="12_n35o6"]
 [ext_resource type="PackedScene" uid="uid://cwu6wq31co236" path="res://hud.tscn" id="13_8y4c5"]
+[ext_resource type="PackedScene" uid="uid://5yxc4a3frqo4" path="res://dust_area_type_2.tscn" id="14_43i2u"]
+[ext_resource type="PackedScene" uid="uid://cf18bmvslcsfx" path="res://dust_area_type_3.tscn" id="15_7atd3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5r6cw"]
 
@@ -96,6 +98,7 @@ mesh = SubResource("BoxMesh_rrnw6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3608, 1.19962, 8.65311)
 
 [node name="TripleJumpUnlocker" parent="." instance=ExtResource("5_ffqbb")]
+visible = false
 
 [node name="TripleJumpUnlockZone" parent="TripleJumpUnlocker" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.07659, 5.4313, -3.20267)
@@ -119,12 +122,21 @@ visible = false
 
 [node name="GameController" parent="." instance=ExtResource("11_a0iho")]
 
-[node name="DustArea" parent="." instance=ExtResource("12_n35o6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.588571, 2.62558)
-
 [node name="HUD" parent="." instance=ExtResource("13_8y4c5")]
 
+[node name="DustAreaType1" parent="." instance=ExtResource("12_n35o6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.911502, 2.36306)
+
+[node name="DustAreaType2" parent="." instance=ExtResource("14_43i2u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9559, 0.57243, 0)
+
+[node name="DustAreaType3" parent="." instance=ExtResource("15_7atd3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62791, 0.570854, 0)
+
 [connection signal="body_entered" from="DoubleJumpUnlocker/DoubleJumpUnlockZone" to="DoubleJumpUnlocker/DoubleJumpUnlockZone" method="_on_body_entered"]
+[connection signal="dust_collected" from="DustAreaType1" to="GameController" method="_on_dust_collected"]
+[connection signal="dust_collected" from="DustAreaType2" to="GameController" method="_on_dust_collected"]
+[connection signal="dust_collected" from="DustAreaType3" to="GameController" method="_on_dust_collected"]
 
 [editable path="Character"]
 [editable path="Character/RoombaianaJones/RoombaModel"]
@@ -134,3 +146,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.588571, 2.62558)
 [editable path="TripleJumpUnlocker"]
 [editable path="WhipNode"]
 [editable path="MovableBlocks"]
+[editable path="HUD"]
