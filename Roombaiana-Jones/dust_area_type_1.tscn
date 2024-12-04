@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://0o0bcv0sshsh"]
+
+[ext_resource type="Script" path="res://dust_area_type_1.gd" id="1_v3h5h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7muvq"]
+size = Vector3(1, 0.1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38vjb"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_b3j1y"]
+material = SubResource("StandardMaterial3D_38vjb")
+size = Vector3(1, 0.1, 1)
+
+[node name="DustAreaType1" type="Area3D" groups=["dust_areas"]]
+script = ExtResource("1_v3h5h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_7muvq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_b3j1y")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
