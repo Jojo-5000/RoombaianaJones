@@ -1,9 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://b822nmn0vp7ee"]
+[gd_scene load_steps=32 format=3 uid="uid://b822nmn0vp7ee"]
 
 [ext_resource type="Script" path="res://roombaiana_jones.gd" id="1_1h2hy"]
 [ext_resource type="PackedScene" uid="uid://b78pxdlbre5hq" path="res://bullet.tscn" id="2_aaaf5"]
 [ext_resource type="PackedScene" uid="uid://wp1sy5y4btxn" path="res://roomba_model.tscn" id="2_p8tiv"]
 [ext_resource type="Texture2D" uid="uid://cngq4681d2gsu" path="res://Textures/HairFur.png" id="3_44ihk"]
+[ext_resource type="PackedScene" uid="uid://cwtcn40sy2cmv" path="res://whipability.tscn" id="3_wns60"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_r18i8"]
 height = 0.5
@@ -76,6 +77,13 @@ albedo_texture = ExtResource("3_44ihk")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1nt4"]
 albedo_texture = ExtResource("3_44ihk")
 
+[sub_resource type="SphereMesh" id="SphereMesh_cfp04"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_o6da3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sd13v"]
+albedo_color = Color(0.172549, 0, 1, 1)
+
 [node name="Character" type="Node3D"]
 
 [node name="RoombaianaJones" type="CharacterBody3D" parent="."]
@@ -83,6 +91,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36093, 0)
 script = ExtResource("1_1h2hy")
 JUMP_VELOCITY = 5.0
 bullet_scene = ExtResource("2_aaaf5")
+whip_scene = ExtResource("3_wns60")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RoombaianaJones"]
@@ -158,5 +167,19 @@ material = SubResource("StandardMaterial3D_x06lf")
 material = SubResource("StandardMaterial3D_v1nt4")
 
 [node name="Shootorigin" type="Marker3D" parent="RoombaianaJones"]
+
+[node name="RayCast3D" type="RayCast3D" parent="RoombaianaJones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.36093, 0)
+
+[node name="raycastorigin" type="MeshInstance3D" parent="RoombaianaJones"]
+transform = Transform3D(0.455, 0, 0, 0, 0.455, 0, 0, 0, 0.455, 0, 0.357357, 0)
+mesh = SubResource("SphereMesh_cfp04")
+skeleton = NodePath("")
+
+[node name="raycastgoal" type="MeshInstance3D" parent="RoombaianaJones"]
+transform = Transform3D(0.715, 0, 0, 0, 0.715, 0, 0, 0, 0.715, 0, 1.0878, 1.60741)
+mesh = SubResource("SphereMesh_o6da3")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_sd13v")
 
 [editable path="RoombaianaJones/RoombaModel"]
