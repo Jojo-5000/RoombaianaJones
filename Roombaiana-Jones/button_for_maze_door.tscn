@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://s3x5rt3bdyld"]
+
+[ext_resource type="Script" path="res://maze_door_button.gd" id="1_eexa3"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lno5k"]
+height = 0.392694
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nga5s"]
+height = 0.09
+rings = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_d807t"]
+top_radius = 0.3
+bottom_radius = 0.3
+height = 0.3
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8nn47"]
+top_radius = 0.3
+bottom_radius = 0.3
+height = 0.1
+
+[node name="MazeDoorButton" type="Area3D"]
+script = ExtResource("1_eexa3")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.189536, 0)
+shape = SubResource("CylinderShape3D_lno5k")
+
+[node name="ButtonUnPressed" type="CSGCombiner3D" parent="."]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="ButtonUnPressed"]
+mesh = SubResource("CylinderMesh_nga5s")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="ButtonUnPressed/CSGMesh3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.132788, 0)
+mesh = SubResource("CylinderMesh_d807t")
+
+[node name="ButtonPressed" type="CSGCombiner3D" parent="."]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="ButtonPressed"]
+mesh = SubResource("CylinderMesh_nga5s")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="ButtonPressed/CSGMesh3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0648036, 0)
+mesh = SubResource("CylinderMesh_8nn47")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

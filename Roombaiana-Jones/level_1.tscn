@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bfy2kakhsby8u"]
+[gd_scene load_steps=25 format=3 uid="uid://bfy2kakhsby8u"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_t5ys4"]
 [ext_resource type="PackedScene" uid="uid://b822nmn0vp7ee" path="res://character.tscn" id="1_vi0qk"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cwu6wq31co236" path="res://hud.tscn" id="13_8y4c5"]
 [ext_resource type="PackedScene" uid="uid://5yxc4a3frqo4" path="res://dust_area_type_2.tscn" id="14_43i2u"]
 [ext_resource type="PackedScene" uid="uid://cf18bmvslcsfx" path="res://dust_area_type_3.tscn" id="15_7atd3"]
+[ext_resource type="PackedScene" uid="uid://s3x5rt3bdyld" path="res://button_for_maze_door.tscn" id="16_jif8p"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5r6cw"]
 
@@ -34,6 +35,10 @@ albedo_color = Color(0.423529, 1, 1, 1)
 material = SubResource("StandardMaterial3D_1gxcr")
 size = Vector3(1, 1, 2)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_k6cup"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xecer"]
+
 [node name="Level1" type="Node3D"]
 script = ExtResource("1_t5ys4")
 
@@ -49,7 +54,7 @@ mesh = SubResource("PlaneMesh_q5nab")
 
 [node name="Character" parent="." instance=ExtResource("1_vi0qk")]
 
-[node name="RoombaianaJones" parent="Character" index="0" node_paths=PackedStringArray("camera")]
+[node name="RoombaianaJones" parent="Character" index="0" node_paths=PackedStringArray("camera") groups=["Player"]]
 camera = NodePath("Camera3D")
 
 [node name="Camera3D" type="Camera3D" parent="Character/RoombaianaJones" index="2" node_paths=PackedStringArray("player")]
@@ -126,12 +131,27 @@ visible = false
 
 [node name="DustAreaType1" parent="." instance=ExtResource("12_n35o6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.911502, 2.36306)
+dust_color = Color(0.0627451, 0.133333, 0.478431, 1)
 
 [node name="DustAreaType2" parent="." instance=ExtResource("14_43i2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9559, 0.57243, 0)
 
 [node name="DustAreaType3" parent="." instance=ExtResource("15_7atd3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62791, 0.570854, 0)
+
+[node name="MazeWallAndButtons" type="Node3D" parent="."]
+
+[node name="MazeWall" type="StaticBody3D" parent="MazeWallAndButtons"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 6.12852, 0.743649, 8.50838)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MazeWallAndButtons/MazeWall"]
+shape = SubResource("BoxShape3D_k6cup")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MazeWallAndButtons/MazeWall"]
+mesh = SubResource("BoxMesh_xecer")
+
+[node name="ButtonForMazeDoor" parent="MazeWallAndButtons" instance=ExtResource("16_jif8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.133391, 6)
 
 [connection signal="body_entered" from="DoubleJumpUnlocker/DoubleJumpUnlockZone" to="DoubleJumpUnlocker/DoubleJumpUnlockZone" method="_on_body_entered"]
 [connection signal="dust_collected" from="DustAreaType1" to="GameController" method="_on_dust_collected"]
@@ -147,3 +167,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62791, 0.570854, 0)
 [editable path="WhipNode"]
 [editable path="MovableBlocks"]
 [editable path="HUD"]
+[editable path="MazeWallAndButtons/ButtonForMazeDoor"]

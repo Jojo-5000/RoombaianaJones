@@ -10,7 +10,7 @@ func update_dust_percentage(percentage_type1: float, percentage_type2: float, pe
 	progress_bar_type1.value = percentage_type1  # Set first progress bar's value
 	progress_bar_type2.value = percentage_type2  # Set second progress bar's value
 	progress_bar_type3.value = percentage_type3  # Set third progress bar's value
-	status_label.text = "Dust Collected Type1: %.2f%%\nDust Collected Type2: %.2f%%\nDust Collected Type3: %.2f%%" % [percentage_type1, percentage_type2, percentage_type3]  # Update the label with all three percentages
+	status_label.text = "Blue Dust Collected: %.2f%%\nPurple Dust Collected: %.2f%%\nGreen Dust Collected: %.2f%%" % [percentage_type1, percentage_type2, percentage_type3]  # Update the label with all three percentages
 
 # Method to show ability unlock status (e.g., double jump unlocked)
 func update_status(message: String):

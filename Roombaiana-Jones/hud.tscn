@@ -1,31 +1,52 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwu6wq31co236"]
+[gd_scene load_steps=5 format=3 uid="uid://cwu6wq31co236"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_lgvpa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3oj7"]
+bg_color = Color(0.0627349, 0.132354, 0.479682, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ajjfb"]
+bg_color = Color(0.318391, 0.013151, 0.275926, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qj1bn"]
+bg_color = Color(0.119773, 0.226623, 0.0728655, 1)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_lgvpa")
 
 [node name="DustProgressBarType1" type="ProgressBar" parent="."]
-anchors_preset = 10
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
+offset_left = -800.0
 offset_bottom = 27.0
-grow_horizontal = 2
+grow_horizontal = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_t3oj7")
 
 [node name="StatusLabel" type="Label" parent="."]
-offset_top = 90.0
 offset_right = 40.0
-offset_bottom = 113.0
+offset_bottom = 23.0
 
 [node name="DustProgressBarType2" type="ProgressBar" parent="."]
-anchors_preset = 10
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-offset_top = 30.0
-offset_bottom = 57.0
-grow_horizontal = 2
+anchor_bottom = 0.5
+offset_left = -800.0
+offset_top = -295.0
+offset_bottom = -268.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ajjfb")
 
 [node name="DustProgressBarType3" type="ProgressBar" parent="."]
-anchors_preset = 10
-anchor_right = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -224.0
 offset_top = 60.0
+offset_right = 576.0
 offset_bottom = 87.0
 grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_qj1bn")
