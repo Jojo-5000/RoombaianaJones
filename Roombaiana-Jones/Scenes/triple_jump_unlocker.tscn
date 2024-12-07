@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dranwp6vsb0wv"]
 
-[ext_resource type="Script" path="res://triple_jump_unlock_zone.gd" id="1_m8ivh"]
+[ext_resource type="Script" path="res://Scripts/triple_jump_unlock_zone.gd" id="1_m8ivh"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2j6jo"]
 

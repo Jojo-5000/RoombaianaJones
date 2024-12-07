@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://s3x5rt3bdyld"]
 
-[ext_resource type="Script" path="res://maze_door_button.gd" id="1_eexa3"]
+[ext_resource type="Script" path="res://Scripts/maze_door_button.gd" id="1_eexa3"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_lno5k"]
 height = 0.392694
