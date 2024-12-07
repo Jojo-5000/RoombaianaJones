@@ -62,7 +62,6 @@ transform = Transform3D(1, 0, 0, 0, 0.985996, 0.166769, 0, -0.166769, 0.985996, 
 current = true
 script = ExtResource("2_4weg4")
 player = NodePath("..")
-rotation_speed = 0.001
 
 [node name="SuctionCupAbility" parent="Character/RoombaianaJones" index="3" instance=ExtResource("3_f6ljn")]
 

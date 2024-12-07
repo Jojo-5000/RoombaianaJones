@@ -1,11 +1,11 @@
 extends Camera3D
 
 @export var player : Node3D  # The player node to follow
-@export var rotation_speed : float = 0.1  # Mouse sensitivity for rotation
+@export var rotation_speed : float = 0.001  # Mouse sensitivity for rotation
 @export var distance : float = 5.0  # Distance from the player
 @export var close_distance : float = 1.0
 @export var height : float = 2.0  # Height offset for the camera
-@export var smooth_factor : float = 0.05  # Smoothness for camera movement
+@export var smooth_factor : float = 1.1  # Smoothness for camera movement
 @export var aiming : bool = false
 
 var yaw : float = 0.0  # Rotation around the Y-axis (horizontal)

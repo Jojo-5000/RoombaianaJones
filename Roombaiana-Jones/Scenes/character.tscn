@@ -81,7 +81,6 @@ albedo_texture = ExtResource("3_44ihk")
 [node name="RoombaianaJones" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36093, 0)
 script = ExtResource("1_1h2hy")
-JUMP_VELOCITY = 5.0
 bullet_scene = ExtResource("2_aaaf5")
 metadata/_edit_group_ = true
 
