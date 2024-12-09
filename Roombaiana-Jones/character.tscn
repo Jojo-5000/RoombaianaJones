@@ -167,6 +167,7 @@ material = SubResource("StandardMaterial3D_x06lf")
 material = SubResource("StandardMaterial3D_v1nt4")
 
 [node name="Shootorigin" type="Marker3D" parent="RoombaianaJones"]
+unique_name_in_owner = true
 
 [node name="RayCast3D" type="RayCast3D" parent="RoombaianaJones"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.36093, 0)

@@ -10,9 +10,9 @@ albedo_color = Color(0.902939, 0.0960582, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_1d3du"]
 material = SubResource("StandardMaterial3D_xyr5g")
 
-[node name="MovableBlocks" type="Node3D"]
+[node name="MovableBlocks" type="Node3D" groups=["movable_blocks"]]
 
-[node name="Block1" type="RigidBody3D" parent="."]
+[node name="Block1" type="RigidBody3D" parent="." groups=["movable_blocks"]]
 script = ExtResource("1_ayp8b")
 metadata/_edit_group_ = true
 

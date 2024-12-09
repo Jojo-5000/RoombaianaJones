@@ -126,5 +126,4 @@ func _physics_process(delta: float) -> void:
 	var query = PhysicsRayQueryParameters3D.create(origin, end)
 	query.collide_with_areas = true
 	var result = space_state.intersect_ray(query)
-	print(result)
 	
