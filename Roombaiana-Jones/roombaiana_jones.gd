@@ -6,8 +6,10 @@ extends CharacterBody3D
 @export var max_jumps : int = 1  # Start with 1 jump (adjustable to 2 once unlocked)
 @export var camera : Camera3D  # Reference to the Camera3D node
 @export var shoot_offset: float = 1.5  # Offset to spawn bullet slightly ahead of the camera
+var RAY_LENGTH = 8
 
 @export var bullet_scene: PackedScene
+@export var whip_scene: PackedScene
 
 var jump_count : int = 1  # Tracks the current jump count (starts at 1, indicating first jump available)
 var is_grounded : bool = false
@@ -100,10 +102,28 @@ func _physics_process(delta: float) -> void:
 		owner.add_child(b)
 
 		b.transform = camera.global_transform
-		#print(b.transform.basis.z)
-		#b.transform = b.transform.basis.z + 1000
 		b.transform.origin = $Shootorigin.global_transform.origin
 		b.velocity = -b.transform.basis.z * b.muzzle_velocity
 			
-	if Input.is_action_just_pressed("q"):
-		get_tree().quit()
+	if Input.is_action_just_pressed("whip"):
+		var w = whip_scene.instantiate()
+		owner.add_child(w)
+
+		w.transform = camera.global_transform
+		w.transform.origin = $Shootorigin.global_transform.origin
+		w.velocity = -w.transform.basis.z * w.whip_velocity
+	
+	var space_state = get_world_3d().direct_space_state
+	
+	var camera_position = camera.transform.origin
+	var forward_direction = -camera.transform.basis.z  # In Godot, the forward direction is negative Z
+	
+	var origin = camera_position
+	$raycastorigin.position = origin
+	var end = camera_position + forward_direction * RAY_LENGTH
+	
+	$raycastgoal.position = end
+	var query = PhysicsRayQueryParameters3D.create(origin, end)
+	query.collide_with_areas = true
+	var result = space_state.intersect_ray(query)
+	
