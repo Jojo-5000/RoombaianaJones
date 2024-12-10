@@ -8,7 +8,7 @@
 radius = 0.144763
 height = 0.752531
 
-[node name="Bullet" type="Area3D"]
+[node name="Bullet" type="Area3D" groups=["Highpressure"]]
 script = ExtResource("1_tsmbp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

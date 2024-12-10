@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://kwnvgeimyjtd"]
+[gd_scene load_steps=6 format=3 uid="uid://kwnvgeimyjtd"]
 
 [ext_resource type="Script" path="res://movableblock.gd" id="1_ayp8b"]
 
@@ -9,6 +9,8 @@ albedo_color = Color(0.902939, 0.0960582, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_1d3du"]
 material = SubResource("StandardMaterial3D_xyr5g")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lt73a"]
 
 [node name="MovableBlocks" type="Node3D" groups=["movable_blocks"]]
 
@@ -21,3 +23,10 @@ shape = SubResource("BoxShape3D_i2g6a")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Block1"]
 mesh = SubResource("BoxMesh_1d3du")
+
+[node name="Area3D" type="Area3D" parent="Block1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Block1/Area3D"]
+shape = SubResource("BoxShape3D_lt73a")
+
+[connection signal="area_entered" from="Block1/Area3D" to="Block1" method="_on_area_3d_area_entered"]

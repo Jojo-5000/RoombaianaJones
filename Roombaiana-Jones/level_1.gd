@@ -4,6 +4,9 @@ extends Node3D
 @onready var camera = $Character/RoombaianaJones/Camera3D  # Assuming your camera node is directly a child of Level1
 var paused = false
 
+func _ready():
+	pass
+
 func _process(delta):
 	# Handle pause/unpause with both Escape key or custom Pause action
 	if Input.is_action_just_pressed("ui_cancel") or Input.is_action_just_pressed("Pause"):
@@ -30,3 +33,5 @@ func pausemenu():
 		camera.set_process(false)  # Stop camera movement processing
 
 	paused = !paused
+	
+	
