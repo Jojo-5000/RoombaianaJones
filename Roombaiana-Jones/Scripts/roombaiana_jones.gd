@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-@export var SPEED = 5.0
-@export var JUMP_VELOCITY = 4.5
+@export var SPEED = 400.0
+@export var JUMP_VELOCITY = 400.0
 @export var gravity : float = -10
 @export var max_jumps : int = 1  # Start with 1 jump (adjustable to 2 once unlocked)
 @export var camera : Camera3D  # Reference to the Camera3D node
@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Jump"):
 		# First jump: Only allowed if grounded and jump count is 1
 		if is_grounded and jump_count == 1:
-			velocity.y = JUMP_VELOCITY
+			velocity.y = JUMP_VELOCITY * delta
 			jump_count += 1  # Increment jump count for first jump
 			print("First jump!")
 
@@ -78,8 +78,8 @@ func _physics_process(delta: float) -> void:
 		direction = direction.normalized()
 
 		# Apply the movement direction
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = direction.x * SPEED * delta
+		velocity.z = direction.z * SPEED * delta
 	else:
 		# If there's no input, decelerate smoothly to stop
 		velocity.x = move_toward(velocity.x, 0, SPEED)

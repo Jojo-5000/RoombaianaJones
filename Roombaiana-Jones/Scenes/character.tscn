@@ -89,7 +89,6 @@ albedo_color = Color(0.172549, 0, 1, 1)
 [node name="RoombaianaJones" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36093, 0)
 script = ExtResource("1_1h2hy")
-JUMP_VELOCITY = 5.0
 bullet_scene = ExtResource("2_aaaf5")
 whip_scene = ExtResource("3_wns60")
 metadata/_edit_group_ = true
