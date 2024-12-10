@@ -6,6 +6,8 @@ extends CharacterBody3D
 @export var max_jumps : int = 1  # Start with 1 jump (adjustable to 2 once unlocked)
 @export var camera : Camera3D  # Reference to the Camera3D node
 @export var shoot_offset: float = 1.5  # Offset to spawn bullet slightly ahead of the camera
+@export var item = 1
+var whipready = true
 var RAY_LENGTH = 8
 
 @export var bullet_scene: PackedScene
@@ -13,6 +15,8 @@ var RAY_LENGTH = 8
 
 var jump_count : int = 1  # Tracks the current jump count (starts at 1, indicating first jump available)
 var is_grounded : bool = false
+
+
 
 func _ready():
 	# Ensure the camera is set if it's not already set in the inspector
@@ -95,23 +99,30 @@ func _physics_process(delta: float) -> void:
 		camera.aiming = true
 	else:
 		camera.aiming = false
+		
+	if Input.is_action_just_pressed("scroll_down"):
+		item += 1
+		if item > 2:
+			item = 1
 			
-	if Input.is_action_just_pressed("shoot"):
-		# Get the global position of the spawn point (near the character)
-		var b = bullet_scene.instantiate()
-		owner.add_child(b)
+	if Input.is_action_pressed("whip"):
+		if item == 2: 
+			if whipready:
+				var w = whip_scene.instantiate()
+				owner.add_child(w)
+				w.transform = camera.global_transform
+				w.transform.origin = $Shootorigin.global_transform.origin
+				w.velocity = -w.transform.basis.z * w.whip_velocity
+				$Whiptimer.start()
+				whipready = false
+		if item == 1: 
+					# Get the global position of the spawn point (near the character)
+			var b = bullet_scene.instantiate()
+			owner.add_child(b)
 
-		b.transform = camera.global_transform
-		b.transform.origin = $Shootorigin.global_transform.origin
-		b.velocity = -b.transform.basis.z * b.muzzle_velocity
-			
-	if Input.is_action_just_pressed("whip"):
-		var w = whip_scene.instantiate()
-		owner.add_child(w)
-
-		w.transform = camera.global_transform
-		w.transform.origin = $Shootorigin.global_transform.origin
-		w.velocity = -w.transform.basis.z * w.whip_velocity
+			b.transform = camera.global_transform
+			b.transform.origin = $Shootorigin.global_transform.origin
+			b.velocity = -b.transform.basis.z * b.muzzle_velocity
 	
 	var space_state = get_world_3d().direct_space_state
 	
@@ -127,3 +138,6 @@ func _physics_process(delta: float) -> void:
 	query.collide_with_areas = true
 	var result = space_state.intersect_ray(query)
 	
+func _on_whiptimer_timeout() -> void:
+	print("ready to whip!")
+	whipready = true

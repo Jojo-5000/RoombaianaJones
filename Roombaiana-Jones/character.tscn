@@ -183,4 +183,8 @@ mesh = SubResource("SphereMesh_o6da3")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_sd13v")
 
+[node name="Whiptimer" type="Timer" parent="RoombaianaJones"]
+
+[connection signal="timeout" from="RoombaianaJones/Whiptimer" to="RoombaianaJones" method="_on_whiptimer_timeout"]
+
 [editable path="RoombaianaJones/RoombaModel"]
