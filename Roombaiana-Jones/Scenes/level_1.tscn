@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://duiq8m00p6fdi" path="res://Scenes/game_controller.tscn" id="14_1jmiy"]
 [ext_resource type="PackedScene" uid="uid://0o0bcv0sshsh" path="res://Scenes/dust_area_type_1.tscn" id="15_m8leg"]
 [ext_resource type="PackedScene" uid="uid://cwu6wq31co236" path="res://Scenes/hud.tscn" id="16_wwib7"]
-[ext_resource type="PackedScene" uid="uid://b702ka77t6j6v" path="res://erasablewall.tscn" id="17_tjg6w"]
+[ext_resource type="PackedScene" uid="uid://b702ka77t6j6v" path="res://Scenes/erasablewall.tscn" id="17_tjg6w"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5r6cw"]
 

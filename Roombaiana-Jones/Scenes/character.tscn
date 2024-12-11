@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b78pxdlbre5hq" path="res://Scenes/bullet.tscn" id="2_aaaf5"]
 [ext_resource type="PackedScene" uid="uid://wp1sy5y4btxn" path="res://Scenes/roomba_model.tscn" id="2_p8tiv"]
 [ext_resource type="Texture2D" uid="uid://cngq4681d2gsu" path="res://Textures/HairFur.png" id="3_44ihk"]
-[ext_resource type="PackedScene" uid="uid://cwtcn40sy2cmv" path="res://whipability.tscn" id="3_wns60"]
+[ext_resource type="PackedScene" uid="uid://cwtcn40sy2cmv" path="res://Scenes/whipability.tscn" id="3_wns60"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_r18i8"]
 height = 0.5
