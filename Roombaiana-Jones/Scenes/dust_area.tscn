@@ -1,18 +1,22 @@
 [gd_scene load_steps=5 format=3 uid="uid://0o0bcv0sshsh"]
 
+<<<<<<<< HEAD:Roombaiana-Jones/Scenes/dust_area.tscn
 [ext_resource type="Script" path="res://Scripts/dust_area.gd" id="1_v3h5h"]
+========
+[ext_resource type="Script" path="res://Scripts/dust_area_type_1.gd" id="1_v3h5h"]
+>>>>>>>> DeltaUsage:Roombaiana-Jones/Scenes/dust_area_type_1.tscn
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7muvq"]
 size = Vector3(1, 0.1, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsjjx"]
-albedo_color = Color(0, 0, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38vjb"]
+albedo_color = Color(0.0627451, 0.133333, 0.478431, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_b3j1y"]
-material = SubResource("StandardMaterial3D_hsjjx")
+material = SubResource("StandardMaterial3D_38vjb")
 size = Vector3(1, 0.1, 1)
 
-[node name="DustArea" type="Area3D" groups=["dust_areas"]]
+[node name="DustAreaType1" type="Area3D" groups=["dust_areas"]]
 script = ExtResource("1_v3h5h")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

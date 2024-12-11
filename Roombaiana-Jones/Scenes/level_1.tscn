@@ -1,22 +1,18 @@
-[gd_scene load_steps=26 format=3 uid="uid://bfy2kakhsby8u"]
+[gd_scene load_steps=20 format=3 uid="uid://bfy2kakhsby8u"]
 
-[ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_efq2n"]
-[ext_resource type="PackedScene" uid="uid://b822nmn0vp7ee" path="res://Scenes/character.tscn" id="2_dfpxp"]
-[ext_resource type="Script" path="res://Scripts/camera_3d.gd" id="3_dgv11"]
-[ext_resource type="PackedScene" uid="uid://ymxrfg3le407" path="res://Scenes/suction_cup_ability.tscn" id="4_wmq23"]
-[ext_resource type="PackedScene" uid="uid://debfghg12244x" path="res://Scenes/blocks.tscn" id="5_n0ump"]
-[ext_resource type="PackedScene" uid="uid://bdp12jecxw0yu" path="res://Scenes/double_jump_unlocker.tscn" id="6_vbgl2"]
-[ext_resource type="PackedScene" uid="uid://dranwp6vsb0wv" path="res://Scenes/triple_jump_unlocker.tscn" id="7_jbg51"]
-[ext_resource type="PackedScene" uid="uid://pp0aypft75ox" path="res://Scenes/whip_node.tscn" id="8_b1jeu"]
-[ext_resource type="PackedScene" uid="uid://kwnvgeimyjtd" path="res://Scenes/movable_blocks.tscn" id="9_6yqto"]
-[ext_resource type="PackedScene" uid="uid://bg6qhljfbo7js" path="res://Scenes/pause_menu.tscn" id="10_4h6ks"]
-[ext_resource type="Script" path="res://Scripts/control.gd" id="11_cntbs"]
-[ext_resource type="Texture2D" uid="uid://b7iujlbpqpp8i" path="res://Textures/hogedrukspuit.png" id="12_gtq4v"]
-[ext_resource type="Texture2D" uid="uid://blgpev7ua3xbg" path="res://Textures/whip.png" id="13_4vbkb"]
-[ext_resource type="PackedScene" uid="uid://duiq8m00p6fdi" path="res://Scenes/game_controller.tscn" id="14_1jmiy"]
-[ext_resource type="PackedScene" uid="uid://0o0bcv0sshsh" path="res://Scenes/dust_area_type_1.tscn" id="15_m8leg"]
-[ext_resource type="PackedScene" uid="uid://cwu6wq31co236" path="res://Scenes/hud.tscn" id="16_wwib7"]
-[ext_resource type="PackedScene" uid="uid://b702ka77t6j6v" path="res://Scenes/erasablewall.tscn" id="17_tjg6w"]
+[ext_resource type="Script" path="res://level_1.gd" id="1_t5ys4"]
+[ext_resource type="PackedScene" uid="uid://b822nmn0vp7ee" path="res://character.tscn" id="1_vi0qk"]
+[ext_resource type="Script" path="res://camera_3d.gd" id="2_4weg4"]
+[ext_resource type="PackedScene" uid="uid://debfghg12244x" path="res://blocks.tscn" id="3_ewwcb"]
+[ext_resource type="PackedScene" uid="uid://ymxrfg3le407" path="res://suction_cup_ability.tscn" id="3_f6ljn"]
+[ext_resource type="PackedScene" uid="uid://bdp12jecxw0yu" path="res://double_jump_unlocker.tscn" id="4_bbfa3"]
+[ext_resource type="PackedScene" uid="uid://dranwp6vsb0wv" path="res://triple_jump_unlocker.tscn" id="5_ffqbb"]
+[ext_resource type="PackedScene" uid="uid://pp0aypft75ox" path="res://whip_node.tscn" id="7_uqym6"]
+[ext_resource type="PackedScene" uid="uid://kwnvgeimyjtd" path="res://movable_blocks.tscn" id="8_brb3k"]
+[ext_resource type="PackedScene" uid="uid://bg6qhljfbo7js" path="res://pause_menu.tscn" id="10_w1ts0"]
+[ext_resource type="PackedScene" uid="uid://duiq8m00p6fdi" path="res://game_controller.tscn" id="11_a0iho"]
+[ext_resource type="PackedScene" uid="uid://0o0bcv0sshsh" path="res://dust_area.tscn" id="12_n35o6"]
+[ext_resource type="PackedScene" uid="uid://cwu6wq31co236" path="res://hud.tscn" id="13_8y4c5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5r6cw"]
 
@@ -42,6 +38,10 @@ blend_mode = 3
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hsbh3"]
 blend_mode = 3
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_k6cup"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xecer"]
+
 [node name="Level1" type="Node3D"]
 script = ExtResource("1_efq2n")
 
@@ -59,7 +59,7 @@ mesh = SubResource("PlaneMesh_q5nab")
 [node name="Character" parent="." instance=ExtResource("2_dfpxp")]
 unique_name_in_owner = true
 
-[node name="RoombaianaJones" parent="Character" index="0" node_paths=PackedStringArray("camera")]
+[node name="RoombaianaJones" parent="Character" index="0" node_paths=PackedStringArray("camera") groups=["Player"]]
 camera = NodePath("Camera3D")
 
 [node name="Camera3D" type="Camera3D" parent="Character/RoombaianaJones" index="2" node_paths=PackedStringArray("player")]
@@ -67,7 +67,6 @@ transform = Transform3D(1, 0, 0, 0, 0.985996, 0.166769, 0, -0.166769, 0.985996, 
 current = true
 script = ExtResource("3_dgv11")
 player = NodePath("..")
-rotation_speed = 0.001
 
 [node name="SuctionCupAbility" parent="Character/RoombaianaJones" index="3" instance=ExtResource("4_wmq23")]
 
@@ -108,7 +107,8 @@ mesh = SubResource("BoxMesh_rrnw6")
 [node name="DoubleJumpUnlockZone" parent="DoubleJumpUnlocker" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3608, 1.19962, 8.65311)
 
-[node name="TripleJumpUnlocker" parent="." instance=ExtResource("7_jbg51")]
+[node name="TripleJumpUnlocker" parent="." instance=ExtResource("5_ffqbb")]
+visible = false
 
 [node name="TripleJumpUnlockZone" parent="TripleJumpUnlocker" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.07659, 5.4313, -3.20267)
@@ -199,12 +199,39 @@ wait_time = 0.961
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.588571, 2.62558)
 
 [node name="HUD" parent="." instance=ExtResource("16_wwib7")]
+[node name="HUD" parent="." instance=ExtResource("13_8y4c5")]
 
 [node name="Erasablewall" parent="." instance=ExtResource("17_tjg6w")]
 transform = Transform3D(0.000803028, 0, -5.37496, 0, 5.375, 0, 0.214998, 0, 0.0200757, 0, 3.00805, 10.202)
 
+[node name="DustAreaType1" parent="." instance=ExtResource("12_n35o6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.911502, 2.36306)
+dust_color = Color(0.0627451, 0.133333, 0.478431, 1)
+
+[node name="DustAreaType2" parent="." instance=ExtResource("14_43i2u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9559, 0.57243, 0)
+
+[node name="DustAreaType3" parent="." instance=ExtResource("15_7atd3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62791, 0.570854, 0)
+[node name="MazeWallAndButtons" type="Node3D" parent="."]
+
+[node name="MazeWall" type="StaticBody3D" parent="MazeWallAndButtons"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 6.12852, 0.743649, 8.50838)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MazeWallAndButtons/MazeWall"]
+shape = SubResource("BoxShape3D_k6cup")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MazeWallAndButtons/MazeWall"]
+mesh = SubResource("BoxMesh_xecer")
+
+[node name="ButtonForMazeDoor" parent="MazeWallAndButtons" instance=ExtResource("16_jif8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.133391, 6)
+
 [connection signal="body_entered" from="DoubleJumpUnlocker/DoubleJumpUnlockZone" to="DoubleJumpUnlocker/DoubleJumpUnlockZone" method="_on_body_entered"]
 [connection signal="timeout" from="CanvasLayer/Control/Timer" to="CanvasLayer/Control" method="_on_timer_timeout"]
+[connection signal="dust_collected" from="DustAreaType1" to="GameController" method="_on_dust_collected"]
+[connection signal="dust_collected" from="DustAreaType2" to="GameController" method="_on_dust_collected"]
+[connection signal="dust_collected" from="DustAreaType3" to="GameController" method="_on_dust_collected"]
 
 [editable path="Character"]
 [editable path="Character/RoombaianaJones/RoombaModel"]
@@ -214,3 +241,5 @@ transform = Transform3D(0.000803028, 0, -5.37496, 0, 5.375, 0, 0.214998, 0, 0.02
 [editable path="TripleJumpUnlocker"]
 [editable path="WhipNode"]
 [editable path="MovableBlocks"]
+[editable path="HUD"]
+[editable path="MazeWallAndButtons/ButtonForMazeDoor"]
